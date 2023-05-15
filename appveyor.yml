@@ -6,7 +6,7 @@ test_script:
 - ps: Get-Service 'MSSQL$SQL2019'
 - ps: Get-Service 'MSSQL$SQL2022'
 
-- ps: Start-Service 'MSSQL$SQL2022'
+- ps: Start-Service 'MSSQL$SQL2019'
 
 - ps: Get-Service 'MSSQL$SQL2017'
 - ps: Get-Service 'MSSQL$SQL2019'
