@@ -1,6 +1,7 @@
 
 #image: Visual Studio 2022
-
+build_cloud: OWEN-THINKPAD-Docker
+image: Linux/Node
 test_script:
 #- ps: Get-Service 'MSSQL$SQL2017'
 #- ps: Get-Service 'MSSQL$SQL2019'
