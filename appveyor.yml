@@ -2,9 +2,10 @@
 image: Visual Studio 2022
 #build_cloud: OWEN-THINKPAD-Docker
 #image: Linux/Node
-init: 
-  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+#init: 
+ # - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 test_script:
+- ps: cl.exe
 #- ps: Get-Service 'MSSQL$SQL2017'
 #- ps: Get-Service 'MSSQL$SQL2019'
 #- ps: Get-Service 'MSSQL$SQL2022'
