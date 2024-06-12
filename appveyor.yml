@@ -5,7 +5,7 @@ image: Visual Studio 2022
 #init: 
  # - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 test_script:
-- ps: & "c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\Bin\x86_amd64\cl.exe"
+- ps: &"c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\Bin\x86_amd64\cl.exe"
 #- ps: Get-Service 'MSSQL$SQL2017'
 #- ps: Get-Service 'MSSQL$SQL2019'
 #- ps: Get-Service 'MSSQL$SQL2022'
