@@ -7,7 +7,7 @@ init:
 
  # - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 test_script:
-
+- pwshe.exe -File C:\projects\test-appveyor\test.ps1 -ExecutionPolicy Bypass
 #- call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars32.bat"
 #- ps: Get-Service 'MSSQL$SQL2017'
 #- ps: Get-Service 'MSSQL$SQL2019'
