@@ -1,5 +1,5 @@
 
-image: Visual Studio 2019
+image: Visual Studio 2022
 #build_cloud: OWEN-THINKPAD-Docker
 #image: Linux/Node
 init:
