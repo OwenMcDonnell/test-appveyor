@@ -1,14 +1,22 @@
 
-image: Visual Studio 2022
+image: Visual Studio 2019
 #build_cloud: OWEN-THINKPAD-Docker
 #image: Linux/Node
-stack: python 3.13
+#stack: python 3.13
 init:
 - sh: echo $APPVEYOR_BUILD_WORKER_CLOUD
 - sh: echo $APPVEYOR_BUILD_WORKER_IMAGE
 #- call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars32.bat"
 
 #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+install:
+  - SET PATH=C:\Ruby26\bin;%PATH%
+  - ruby --version
+  - gem install bundler --default -v "2.4.21" 
+  - gem --version
+  - bundle --version
+  - bundle install
+  - ridk.cmd exec bundle exec rake compile
 test_script:
 - python --version
 - pwsh.exe -File C:\projects\test-appveyor\test.ps1 -ExecutionPolicy Bypass
