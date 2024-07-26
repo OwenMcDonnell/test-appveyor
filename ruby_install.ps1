@@ -32,6 +32,12 @@ $rubies = @(
         "bundlerV2"    = $true
     }        
 )
+
+function UpdateRubyPath($rubyPath) {
+    $env:path = ($env:path -split ';' | Where-Object { -not $_.contains('\Ruby') }) -join ';'
+    $env:path = "$rubyPath;$env:path"
+}
+
 function Install-Ruby($ruby) {
     Write-Host "Installing $($ruby.version)" -ForegroundColor Cyan
 
