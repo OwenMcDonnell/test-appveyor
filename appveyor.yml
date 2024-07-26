@@ -10,7 +10,7 @@ init:
 
 #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 install:
-  - ./ruby_install.ps1
+  - ps: ./ruby_install.ps1
   - SET PATH=C:\Ruby26\bin;%PATH%
   - ruby --version
   - gem --version
