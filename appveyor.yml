@@ -1,5 +1,5 @@
 
-image: Visual Studio 2019
+image: Visual Studio 2022
 #build_cloud: OWEN-THINKPAD-Docker
 #image: Linux/Node
 #stack: python 3.13
@@ -10,8 +10,8 @@ init:
 
 #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 install:
-  - ps: ./ruby_install.ps1
-  - SET PATH=C:\Ruby26\bin;%PATH%
+  #- ps: ./ruby_install.ps1
+  #- SET PATH=C:\Ruby26\bin;%PATH%
   - ruby --version
   - gem --version
   - bundle --version
