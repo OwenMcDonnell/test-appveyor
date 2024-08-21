@@ -16,7 +16,7 @@ install:
   - gem --version
   - bundle --version
   #- bundle install
-  - ridk.cmd exec bundle exec rake compile
+  #- ridk.cmd exec bundle exec rake compile
 test_script:
 - python --version
 - pwsh.exe -File C:\projects\test-appveyor\test.ps1 -ExecutionPolicy Bypass
