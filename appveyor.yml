@@ -15,7 +15,7 @@ install:
   - ruby --version
   - gem --version
   - bundle --version
-  - bundle install
+  #- bundle install
   - ridk.cmd exec bundle exec rake compile
 test_script:
 - python --version
