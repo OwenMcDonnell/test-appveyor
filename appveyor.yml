@@ -2,7 +2,9 @@
 image: Visual Studio 2019
 #build_cloud: OWEN-THINKPAD-Docker
 #image: Linux/Node
-stack: python 3.13
+#stack: python 3.13
+environment:
+-PYTHON: C:\Python313-x64
 init:
 - sh: echo $APPVEYOR_BUILD_WORKER_CLOUD
 - sh: echo $APPVEYOR_BUILD_WORKER_IMAGE
@@ -18,6 +20,7 @@ install:
   #- bundle install
   #- ridk.cmd exec bundle exec rake compile
 test_script:
+- SET PATH=%PYTHON%;%PYTHON%\Scripts;%PATH%"
 - python --version
 - pwsh.exe -File C:\projects\test-appveyor\test.ps1 -ExecutionPolicy Bypass
 #- call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars32.bat"
