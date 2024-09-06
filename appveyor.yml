@@ -1,16 +1,16 @@
 
-image: Visual Studio 2022
+image: Visual Studio 2015
 #build_cloud: OWEN-THINKPAD-Docker
 #image: Linux/Node
 #stack: python 3.13
-environment:
-  PYTHON: C:\Python313-x64
+# environment:
+#   PYTHON: C:\Python313-x64
 init:
 - sh: echo $APPVEYOR_BUILD_WORKER_CLOUD
 - sh: echo $APPVEYOR_BUILD_WORKER_IMAGE
 #- call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars32.bat"
 
-#- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 install:
   #- ps: ./ruby_install.ps1
   #- SET PATH=C:\Ruby26\bin;%PATH%
