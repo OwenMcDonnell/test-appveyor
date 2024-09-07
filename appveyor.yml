@@ -1,5 +1,5 @@
 
-image: Visual Studio 2017
+image: Visual Studio 2015
 #build_cloud: OWEN-THINKPAD-Docker
 #image: Linux/Node
 #stack: python 3.13
@@ -14,6 +14,7 @@ init:
 install:
   #- ps: "[Net.ServicePointManager]::SecurityProtocol = 'Tls11'"
   #- ps: Start-FileDownload 'https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.13/bin/windows/hdf5-1.8.13-win32-VS2010-shared.zip'
+  - where curl
   - curl -fsS -o hdf5-1.8.13-win32-VS2010-shared.zip https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.13/bin/windows/hdf5-1.8.13-win32-VS2010-shared.zip
   #- ps: ./ruby_install.ps1
   #- SET PATH=C:\Ruby26\bin;%PATH%
