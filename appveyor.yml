@@ -24,6 +24,7 @@ install:
   #- bundle install
   #- ridk.cmd exec bundle exec rake compile
 test_script:
+- ps: ./test.ps1
 - SET PATH=%PYTHON%;%PYTHON%\Scripts;%PATH%"
 - python --version
 - pwsh.exe -File C:\projects\test-appveyor\test.ps1 -ExecutionPolicy Bypass
