@@ -6,8 +6,8 @@ build_cloud: gce-us-central1-01-b
 # environment:
 #   PYTHON: C:\Python313-x64
 init:
-- sh: echo $APPVEYOR_BUILD_WORKER_CLOUD
-- sh: echo $APPVEYOR_BUILD_WORKER_IMAGE
+- echo %APPVEYOR_BUILD_WORKER_CLOUD%
+- echo %APPVEYOR_BUILD_WORKER_IMAGE%
 #- call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars32.bat"
 
 # - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
