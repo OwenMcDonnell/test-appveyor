@@ -1,6 +1,6 @@
 
-image: Visual Studio 2022
-#build_cloud: OWEN-THINKPAD-Docker
+image: Previous Visual Studio 2022
+build_cloud: gce-us-central1-01-b
 #image: Linux/Node
 #stack: python 3.13
 # environment:
@@ -10,8 +10,9 @@ init:
 - sh: echo $APPVEYOR_BUILD_WORKER_IMAGE
 #- call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars32.bat"
 
-- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+# - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 install:
+  - xgettext --version
   #- ps: "[Net.ServicePointManager]::SecurityProtocol = 'Tls11'"
   #- ps: Start-FileDownload 'https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.13/bin/windows/hdf5-1.8.13-win32-VS2010-shared.zip'
   #- where curl
