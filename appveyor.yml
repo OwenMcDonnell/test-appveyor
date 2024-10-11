@@ -1,6 +1,6 @@
 
-image: Previous Visual Studio 2022
-build_cloud: gce-us-central1-01-b
+#image: Previous Visual Studio 2022
+#build_cloud: gce-us-central1-01-b
 #image: Linux/Node
 #stack: python 3.13
 # environment:
