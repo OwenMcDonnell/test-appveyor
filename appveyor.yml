@@ -27,9 +27,9 @@ install:
   #- ridk.cmd exec bundle exec rake compile
 test_script:
 #- ps: ./test.ps1
-- ps: ./upload_test.p1
-- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
-- SET PATH=%PYTHON%;%PYTHON%\Scripts;%PATH%"
+- ps: ./upload_tests.p1
+#- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+#- SET PATH=%PYTHON%;%PYTHON%\Scripts;%PATH%"
 - python --version
 - pwsh.exe -File C:\projects\test-appveyor\test.ps1 -ExecutionPolicy Bypass
 #- call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars32.bat"
