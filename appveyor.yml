@@ -9,6 +9,7 @@ init:
 
 - echo %APPVEYOR_BUILD_WORKER_IMAGE%
 - echo %APPVEYOR_BUILD_WORKER_CLOUD%
+- ps: echo $env:APPVEYOR_JOB_ID
 #- call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars32.bat"
 
 #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
