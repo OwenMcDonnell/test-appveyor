@@ -17,6 +17,6 @@ install:
 
 build_script:
 - cmd: |-
-    lrelease --version
-    qmake --version
-    nmake --version
+    lrelease -version
+    qmake -version
+    nmake -version
