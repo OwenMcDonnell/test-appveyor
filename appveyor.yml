@@ -5,6 +5,8 @@ image: Visual Studio 2022
 #stack: python 3.13
 # environment:
 #   PYTHON: C:\Python313-x64
+stack:
+  python 3.12
 init:
 
 - echo %APPVEYOR_BUILD_WORKER_IMAGE%
@@ -21,6 +23,9 @@ install:
   #- curl -fsS -o hdf5-1.8.13-win32-VS2010-shared.zip https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.13/bin/windows/hdf5-1.8.13-win32-VS2010-shared.zip
   #- ps: ./ruby_install.ps1
   #- SET PATH=C:\Ruby26\bin;%PATH%
+  - python -m pip install pip==23.2.1
+  - pyhton -m pip --version
+  - python -m pip install wheel
   - ruby --version
   - gem --version
   - bundle --version
