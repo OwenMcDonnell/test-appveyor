@@ -5,8 +5,8 @@ image: Visual Studio 2022
 #stack: python 3.13
 # environment:
 #   PYTHON: C:\Python313-x64
-stack:
-  python 3.12
+#stack:
+ # python 3.12
 init:
 
 - echo %APPVEYOR_BUILD_WORKER_IMAGE%
@@ -24,6 +24,7 @@ install:
   #- ps: ./ruby_install.ps1
   #- SET PATH=C:\Ruby26\bin;%PATH%
   #- python -m pip install pip==23.2.1
+  - dotnet --version
   - python -m pip --version
   - python -m pip install wheel
   - ruby --version
@@ -37,7 +38,7 @@ test_script:
 #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 #- SET PATH=%PYTHON%;%PYTHON%\Scripts;%PATH%"
 - python --version
-- pwsh.exe -File C:\projects\test-appveyor\test.ps1 -ExecutionPolicy Bypass
+#- pwsh.exe -File C:\projects\test-appveyor\test.ps1 -ExecutionPolicy Bypass
 #- call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars32.bat"
 #- ps: Get-Service 'MSSQL$SQL2017'
 #- ps: Get-Service 'MSSQL$SQL2019'
@@ -46,9 +47,9 @@ test_script:
 #- ps: Start-Service 'MSSQL$SQL2019'
 
 #- ps: Get-Service 'MSSQL$SQL2017'
-#- ps: Get-Service 'MSSQL$SQL2019'
+- ps: Get-Service 'MSSQL$SQL2019'
 #- ps: Get-Service 'MSSQL$SQL2022'
-- ps: Invoke-WebRequest "https://dot.net/v1/dotnet-install.ps1" -OutFile "./dotnet-install.ps1"
-- ps: ./dotnet-install.ps1 -Channel LTS
+#- ps: Invoke-WebRequest "https://dot.net/v1/dotnet-install.ps1" -OutFile "./dotnet-install.ps1"
+#- ps: ./dotnet-install.ps1 -Channel LTS
 - ps: nuget
 build: off
