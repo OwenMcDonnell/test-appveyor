@@ -1,5 +1,5 @@
 
-image: Previous Visual Studio 2022
+image: Visual Studio 2022
 #build_cloud: gce-us-central1-01-b
 #image: Linux/Node
 #stack: python 3.13
@@ -16,6 +16,7 @@ init:
 
 #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 install:
+  - ps: .\install_nuget.ps1
   #- gettext --version
   #- ps: "[Net.ServicePointManager]::SecurityProtocol = 'Tls11'"
   #- ps: Start-FileDownload 'https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.8/hdf5-1.8.13/bin/windows/hdf5-1.8.13-win32-VS2010-shared.zip'
@@ -24,6 +25,7 @@ install:
   #- ps: ./ruby_install.ps1
   #- SET PATH=C:\Ruby26\bin;%PATH%
   #- python -m pip install pip==23.2.1
+  - nuget --version
   - dotnet --version
   - python -m pip --version
   - python -m pip install wheel
