@@ -25,7 +25,7 @@ install:
   #- ps: ./ruby_install.ps1
   #- SET PATH=C:\Ruby26\bin;%PATH%
   #- python -m pip install pip==23.2.1
-  - nuget --version
+  - nuget help
   - dotnet --version
   - python -m pip --version
   - python -m pip install wheel
