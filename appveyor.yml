@@ -1,6 +1,6 @@
 
-image: Visual Studio 2017
-#build_cloud: gce-us-central1-01-b
+image: Visual Studio 2022
+build_cloud: gce-us-central1-01-b
 #image: Linux/Node
 #stack: python 3.13
 # environment:
@@ -14,8 +14,11 @@ init:
 - ps: echo $env:APPVEYOR_JOB_ID
 #- call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars32.bat"
 
-- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+#- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 install:
+  - ps: Get-Command -ListImported
+  - ps: Get-Command -Type Cmdlet | Sort-Object -Property Noun | Format-Table -GroupBy Noun
+  - ps: Get-Command *
   - ps: .\install_nuget.ps1
   #- gettext --version
   #- ps: "[Net.ServicePointManager]::SecurityProtocol = 'Tls11'"
