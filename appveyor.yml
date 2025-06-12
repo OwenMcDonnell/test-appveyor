@@ -16,9 +16,7 @@ init:
 
 #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 install:
-  - ps: Get-Command -ListImported
-  - ps: Get-Command -Type Cmdlet | Sort-Object -Property Noun | Format-Table -GroupBy Noun
-  - ps: Get-Command *
+  - ps: Get-Command Connect-*
   - ps: .\install_nuget.ps1
   #- gettext --version
   #- ps: "[Net.ServicePointManager]::SecurityProtocol = 'Tls11'"
@@ -39,7 +37,7 @@ install:
   #- ridk.cmd exec bundle exec rake compile
 test_script:
 #- ps: ./test.ps1
-- ps: ./upload_tests.ps1
+# - ps: ./upload_tests.ps1
 #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 #- SET PATH=%PYTHON%;%PYTHON%\Scripts;%PATH%"
 - python --version
