@@ -1,6 +1,6 @@
 
 image: Visual Studio 2022
-#build_cloud: gce-us-central1-01-b
+build_cloud: gce-us-central1-01-b
 #image: Linux/Node
 #stack: python 3.13
 # environment:
@@ -9,8 +9,8 @@ image: Visual Studio 2022
  # python 3.12
 init:
 
-- echo %APPVEYOR_BUILD_WORKER_IMAGE%
-- echo %APPVEYOR_BUILD_WORKER_CLOUD%
+- ps: $env:APPVEYOR_BUILD_WORKER_IMAGE
+- ps: $env:APPVEYOR_BUILD_WORKER_CLOUD
 - ps: echo $env:APPVEYOR_JOB_ID
 #- call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars32.bat"
 
