@@ -17,6 +17,7 @@ init:
 #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 install:
   - ps: Get-Command Connect-*
+  - ps: .\cmdlet-test.ps1
   #- ps: .\install_nuget.ps1
   #- gettext --version
   #- ps: "[Net.ServicePointManager]::SecurityProtocol = 'Tls11'"
