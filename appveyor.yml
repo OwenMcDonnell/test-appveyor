@@ -8,7 +8,7 @@ image: Visual Studio 2022
 #stack:
  # python 3.12
 init:
-- nuget list
+- nuget list -Source "https://ci.appveyor.com/nuget/test-appveyor-9w4scw14dufb"
 - ps: $env:APPVEYOR_BUILD_WORKER_IMAGE
 - ps: $env:APPVEYOR_BUILD_WORKER_CLOUD
 - ps: echo $env:APPVEYOR_JOB_ID
@@ -51,6 +51,9 @@ build:
   publish_nuget_symbols: true
   include_nuget_references: true
   verbosity: minimal
+  
+after_build:
+  - appveyor PushArtifact MyNuGetLib.1.0.116.nupkg
   
 test_script:
 #- ps: ./test.ps1
