@@ -1,6 +1,6 @@
 
-image: Linux
-build_cloud: GCE us-west1-a f1-micro
+image: Visual Studio 2022
+#build_cloud: GCE us-west1-a f1-micro
 #image: Linux/Node
 #stack: python 3.13
 # environment:
