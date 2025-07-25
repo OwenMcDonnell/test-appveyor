@@ -8,7 +8,7 @@ image: Visual Studio 2022
 #stack:
  # python 3.12
 init:
-- nuget
+- nuget list
 - ps: $env:APPVEYOR_BUILD_WORKER_IMAGE
 - ps: $env:APPVEYOR_BUILD_WORKER_CLOUD
 - ps: echo $env:APPVEYOR_JOB_ID
