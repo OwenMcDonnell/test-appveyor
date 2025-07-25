@@ -24,8 +24,8 @@ assembly_info:
   assembly_informational_version: '{version}'
 
 install:
-  - ps: Get-Command Connect-*
-  - ps: .\cmdlet-test.ps1
+  #- ps: Get-Command Connect-*
+  #- ps: .\cmdlet-test.ps1
   #- ps: .\install_nuget.ps1
   #- gettext --version
   #- ps: "[Net.ServicePointManager]::SecurityProtocol = 'Tls11'"
