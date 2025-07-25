@@ -8,13 +8,21 @@ build_cloud: GCE us-west1-a f1-micro
 #stack:
  # python 3.12
 init:
-
+- nuget
 - ps: $env:APPVEYOR_BUILD_WORKER_IMAGE
 - ps: $env:APPVEYOR_BUILD_WORKER_CLOUD
 - ps: echo $env:APPVEYOR_JOB_ID
 #- call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars32.bat"
 
 #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+
+assembly_info:
+  patch: true
+  file: '**\AssemblyInfo.*'
+  assembly_version: '{version}'
+  assembly_file_version: '{version}'
+  assembly_informational_version: '{version}'
+
 install:
   - ps: Get-Command Connect-*
   - ps: .\cmdlet-test.ps1
@@ -36,6 +44,14 @@ install:
   - bundle --version
   #- bundle install
   #- ridk.cmd exec bundle exec rake compile
+
+ 
+build:
+  publish_nuget: true
+  publish_nuget_symbols: true
+  include_nuget_references: true
+  verbosity: minimal
+  
 test_script:
 #- ps: ./test.ps1
 # - ps: ./upload_tests.ps1
@@ -56,4 +72,4 @@ test_script:
 #- ps: Invoke-WebRequest "https://dot.net/v1/dotnet-install.ps1" -OutFile "./dotnet-install.ps1"
 #- ps: ./dotnet-install.ps1 -Channel LTS
 #- ps: nuget
-build: off
+#build: off
