@@ -47,11 +47,11 @@ install:
   #- ridk.cmd exec bundle exec rake compile
 
  
-build:
-  publish_nuget: true
-  publish_nuget_symbols: true
-  include_nuget_references: true
-  verbosity: minimal
+# build:
+#   publish_nuget: true
+#   publish_nuget_symbols: true
+#   include_nuget_references: true
+#   verbosity: minimal
   
 # after_build:
 #   - appveyor PushArtifact MyNuGetLib.1.0.116.nupkg
