@@ -25,6 +25,7 @@ assembly_info:
   assembly_informational_version: '{version}'
 
 install:
+  - curl -v https://sequensis.myget.org/F/tool-packages/auth/9793a328-23d0-4400-afc3-516fb0354bd5/api/v3/index.json
   #- ps: Get-Command Connect-*
   #- ps: .\cmdlet-test.ps1
   #- ps: .\install_nuget.ps1
