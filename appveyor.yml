@@ -8,7 +8,8 @@ image: Visual Studio 2022
 #stack:
  # python 3.12
 init:
-- nuget list -Source "https://ci.appveyor.com/nuget/test-appveyor-9w4scw14dufb"
+- nuget sources add -Name SequensisToolsFeed -Source https://sequensis.myget.org/F/tool-packages/auth/9793a328-23d0-4400-afc3-516fb0354bd5/api/v3/index.json
+#- nuget list -Source "https://ci.appveyor.com/nuget/test-appveyor-9w4scw14dufb"
 - ps: $env:APPVEYOR_BUILD_WORKER_IMAGE
 - ps: $env:APPVEYOR_BUILD_WORKER_CLOUD
 - ps: echo $env:APPVEYOR_JOB_ID
@@ -52,10 +53,11 @@ build:
   include_nuget_references: true
   verbosity: minimal
   
-after_build:
-  - appveyor PushArtifact MyNuGetLib.1.0.116.nupkg
+# after_build:
+#   - appveyor PushArtifact MyNuGetLib.1.0.116.nupkg
   
 test_script:
+- ps: dotnet tool install foreman --version "0.23.2"
 #- ps: ./test.ps1
 # - ps: ./upload_tests.ps1
 #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
@@ -75,4 +77,4 @@ test_script:
 #- ps: Invoke-WebRequest "https://dot.net/v1/dotnet-install.ps1" -OutFile "./dotnet-install.ps1"
 #- ps: ./dotnet-install.ps1 -Channel LTS
 #- ps: nuget
-#build: off
+build: off
