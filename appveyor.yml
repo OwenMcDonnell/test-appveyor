@@ -57,7 +57,7 @@ install:
 #   - appveyor PushArtifact MyNuGetLib.1.0.116.nupkg
   
 test_script:
-- ps: dotnet tool install foreman --version "0.23.2"
+- ps: dotnet tool install --global foreman --version "0.23.2"
 #- ps: ./test.ps1
 # - ps: ./upload_tests.ps1
 #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
