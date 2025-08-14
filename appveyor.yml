@@ -1,5 +1,5 @@
 
-image: Visual Studio 2022
+image: Visual Studio 2017
 #build_cloud: GCE us-west1-a f1-micro
 #image: Linux/Node
 #stack: python 3.13
@@ -8,6 +8,7 @@ image: Visual Studio 2022
 #stack:
  # python 3.12
 init:
+- nuget --version
 - nuget sources add -Name SequensisToolsFeed -Source https://sequensis.myget.org/F/tool-packages/auth/9793a328-23d0-4400-afc3-516fb0354bd5/api/v3/index.json
 #- nuget list -Source "https://ci.appveyor.com/nuget/test-appveyor-9w4scw14dufb"
 - ps: $env:APPVEYOR_BUILD_WORKER_IMAGE
