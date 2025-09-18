@@ -1,32 +1,19 @@
 
 image: Visual Studio 2019
-#build_cloud: GCE us-west1-a f1-micro
-#image: Linux/Node
-#stack: python 3.13
-# environment:
-#   PYTHON: C:\Python313-x64
-#stack:
- # python 3.12
+
+
 init:
-- nuget help
-- nuget sources add -Name SequensisToolsFeed -Source https://sequensis.myget.org/F/tool-packages/auth/9793a328-23d0-4400-afc3-516fb0354bd5/api/v3/index.json
-#- nuget list -Source "https://ci.appveyor.com/nuget/test-appveyor-9w4scw14dufb"
 - ps: $env:APPVEYOR_BUILD_WORKER_IMAGE
 - ps: $env:APPVEYOR_BUILD_WORKER_CLOUD
 - ps: echo $env:APPVEYOR_JOB_ID
 #- call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars32.bat"
 
-- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+#- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
-assembly_info:
-  patch: true
-  file: '**\AssemblyInfo.*'
-  assembly_version: '{version}'
-  assembly_file_version: '{version}'
-  assembly_informational_version: '{version}'
 
 install:
-  - curl -v https://sequensis.myget.org/F/tool-packages/auth/9793a328-23d0-4400-afc3-516fb0354bd5/api/v3/index.json
+  - ps: C:\msys64\mingw64\bin\gcc.exe --version
+  - ps: C:\msys64\mingw64\bin\g++.exe --version
   #- ps: Get-Command Connect-*
   #- ps: .\cmdlet-test.ps1
   #- ps: .\install_nuget.ps1
@@ -38,13 +25,13 @@ install:
   #- ps: ./ruby_install.ps1
   #- SET PATH=C:\Ruby26\bin;%PATH%
   #- python -m pip install pip==23.2.1
-  - nuget help
-  - dotnet --version
-  - python -m pip --version
-  - python -m pip install wheel
-  - ruby --version
-  - gem --version
-  - bundle --version
+  # - nuget help
+  # - dotnet --version
+  # - python -m pip --version
+  # - python -m pip install wheel
+  # - ruby --version
+  # - gem --version
+  # - bundle --version
   #- bundle install
   #- ridk.cmd exec bundle exec rake compile
 
@@ -59,7 +46,7 @@ install:
 #   - appveyor PushArtifact MyNuGetLib.1.0.116.nupkg
   
 test_script:
-- ps: dotnet tool install --global foreman --version "0.23.2"
+#- ps: dotnet tool install --global foreman --version "0.23.2"
 #- ps: ./test.ps1
 # - ps: ./upload_tests.ps1
 #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
