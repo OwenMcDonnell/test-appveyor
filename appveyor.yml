@@ -1,6 +1,6 @@
 
 image: vs2022-master-gce-us-central1
-cloud: bakery-gce-us-central1
+build_cloud: bakery-gce-us-central1
 
 
 init:
