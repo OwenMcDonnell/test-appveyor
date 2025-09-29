@@ -1,5 +1,5 @@
 
-image: Previous Visual Studio 2019
+image: Visual Studio 2019
 #image: vs2019-master-gce-us-central1
 #build_cloud: bakery-gce-us-central1
 
@@ -18,6 +18,8 @@ install:
   - ps: C:\msys64\mingw64\bin\g++.exe --version
   - ps: C:\OpenSSL-Win64\bin\openssl version
   - ps: Get-ChildItem -Path "C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt\"
+  - ps: Get-ChildItem -Path "C:\msys64\mingw64\lib"
+  - ps: Get-ChildItem -Path "C:\msys64\mingw32\lib"
   #- ps: Get-Command Connect-*
   #- ps: .\cmdlet-test.ps1
   #- ps: .\install_nuget.ps1
