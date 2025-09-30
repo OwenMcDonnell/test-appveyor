@@ -4,6 +4,9 @@ image: vs2019-master-gce-us-central1
 build_cloud: bakery-gce-us-central1
 #build_cloud: gce
 
+environment:
+  CC:         C:/msys64/mingw64/bin/gcc.exe
+  CXX:        C:/msys64/mingw64/bin/g++.exe
 
 init:
 - ps: $env:APPVEYOR_BUILD_WORKER_IMAGE
@@ -45,7 +48,9 @@ install:
   #- ridk.cmd exec bundle exec rake compile
 
  
-# build:
+build:
+  - ps: cmake -B./build -G "Ninja" -DCMAKE_BUILD_TYPE:STRING=RelWithDebInfo -DCMAKE_SH=CMAKE_SH-NOTFOUND
+
 #   publish_nuget: true
 #   publish_nuget_symbols: true
 #   include_nuget_references: true
