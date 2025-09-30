@@ -50,7 +50,7 @@ install:
   #- ridk.cmd exec bundle exec rake compile
 
  
-build:
+#build:
 #   publish_nuget: true
 #   publish_nuget_symbols: true
 #   include_nuget_references: true
