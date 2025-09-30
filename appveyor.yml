@@ -23,6 +23,8 @@ install:
   - ps: C:\msys64\mingw64\bin\gcc.exe --version
   - ps: C:\msys64\mingw64\bin\g++.exe --version
   - ps: C:\OpenSSL-Win64\bin\openssl version
+  - ps: cmake -B./build -G "Ninja" -DCMAKE_BUILD_TYPE:STRING=RelWithDebInfo -DCMAKE_SH=CMAKE_SH-NOTFOUND
+
   #- ps: Get-ChildItem -Path "C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt\"
   #- ps: Get-ChildItem -Path "C:\msys64\mingw64\lib"
   #- ps: Get-ChildItem -Path "C:\msys64\mingw32\lib"
@@ -49,8 +51,6 @@ install:
 
  
 build:
-  - ps: cmake -B./build -G "Ninja" -DCMAKE_BUILD_TYPE:STRING=RelWithDebInfo -DCMAKE_SH=CMAKE_SH-NOTFOUND
-
 #   publish_nuget: true
 #   publish_nuget_symbols: true
 #   include_nuget_references: true
@@ -81,4 +81,4 @@ test_script:
 #- ps: Invoke-WebRequest "https://dot.net/v1/dotnet-install.ps1" -OutFile "./dotnet-install.ps1"
 #- ps: ./dotnet-install.ps1 -Channel LTS
 #- ps: nuget
-#build: off
+build: off
