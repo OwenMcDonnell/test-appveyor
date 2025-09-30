@@ -81,4 +81,4 @@ test_script:
 #- ps: Invoke-WebRequest "https://dot.net/v1/dotnet-install.ps1" -OutFile "./dotnet-install.ps1"
 #- ps: ./dotnet-install.ps1 -Channel LTS
 #- ps: nuget
-build: off
+#build: off
