@@ -1,8 +1,8 @@
 
-image: Previous Visual Studio 2019
-#image: vs2019-master-gce-us-central1
-#build_cloud: bakery-gce-us-central1
-build_cloud: gce
+#image: Previous Visual Studio 2019
+image: vs2019-master-gce-us-central1
+build_cloud: bakery-gce-us-central1
+#build_cloud: gce
 
 
 init:
@@ -13,16 +13,16 @@ init:
 - ps: Get-module PowerShellGet -ListAvailable
 #- call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars32.bat"
 
-- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+#- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 
 install:
   - ps: C:\msys64\mingw64\bin\gcc.exe --version
   - ps: C:\msys64\mingw64\bin\g++.exe --version
   - ps: C:\OpenSSL-Win64\bin\openssl version
-  - ps: Get-ChildItem -Path "C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt\"
-  - ps: Get-ChildItem -Path "C:\msys64\mingw64\lib"
-  - ps: Get-ChildItem -Path "C:\msys64\mingw32\lib"
+  #- ps: Get-ChildItem -Path "C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt\"
+  #- ps: Get-ChildItem -Path "C:\msys64\mingw64\lib"
+  #- ps: Get-ChildItem -Path "C:\msys64\mingw32\lib"
   #- ps: Get-Command Connect-*
   #- ps: .\cmdlet-test.ps1
   #- ps: .\install_nuget.ps1
