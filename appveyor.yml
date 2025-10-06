@@ -20,9 +20,9 @@ init:
 
 
 install:
+  - ps: $env:PATH += ";C:/msys64/mingw64/bin"
   - ps: C:\msys64\mingw64\bin\gcc.exe --version
   - ps: C:\msys64\mingw64\bin\g++.exe --version
-  - ps: C:\OpenSSL-Win64\bin\openssl version
   #- ps: Get-ChildItem -Path "C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt\"
   #- ps: Get-ChildItem -Path "C:\msys64\mingw64\lib"
   #- ps: Get-ChildItem -Path "C:\msys64\mingw32\lib"
