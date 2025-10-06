@@ -1,7 +1,7 @@
 
-#image: Previous Visual Studio 2019
-image: vs2019-master-gce-us-central1
-build_cloud: bakery-gce-us-central1
+image: Visual Studio 2019
+#image: vs2019-master-gce-us-central1
+#build_cloud: bakery-gce-us-central1
 #build_cloud: gce
 
 environment:
@@ -11,11 +11,11 @@ environment:
 init:
 - ps: $env:APPVEYOR_BUILD_WORKER_IMAGE
 - ps: $env:APPVEYOR_BUILD_WORKER_CLOUD
-- ps: echo $env:APPVEYOR_JOB_ID
-- ps: $PsVersionTable
-- ps: Get-module PowerShellGet -ListAvailable
+#- ps: echo $env:APPVEYOR_JOB_ID
+#- ps: $PsVersionTable
+#- ps: Get-module PowerShellGet -ListAvailable
 #- call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars32.bat"
-
+- ps: uname -a
 #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 
@@ -23,6 +23,9 @@ install:
   - ps: $env:PATH += ";C:/msys64/mingw64/bin"
   - ps: C:\msys64\mingw64\bin\gcc.exe --version
   - ps: C:\msys64\mingw64\bin\g++.exe --version
+  - ps: C:\OpenSSL-Win64\bin\openssl version
+  - ps: cmake -B./build -G "Ninja" -DCMAKE_BUILD_TYPE:STRING=RelWithDebInfo -DCMAKE_SH=CMAKE_SH-NOTFOUND
+
   #- ps: Get-ChildItem -Path "C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt\"
   #- ps: Get-ChildItem -Path "C:\msys64\mingw64\lib"
   #- ps: Get-ChildItem -Path "C:\msys64\mingw32\lib"
@@ -48,9 +51,7 @@ install:
   #- ridk.cmd exec bundle exec rake compile
 
  
-build:
-  - ps: cmake -B./build -G "Ninja" -DCMAKE_BUILD_TYPE:STRING=RelWithDebInfo -DCMAKE_SH=CMAKE_SH-NOTFOUND
-
+#build:
 #   publish_nuget: true
 #   publish_nuget_symbols: true
 #   include_nuget_references: true
@@ -66,7 +67,7 @@ test_script:
 #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 #- SET PATH=%PYTHON%;%PYTHON%\Scripts;%PATH%"
 - ps: dotnet --list-sdks
-- python --version
+#- python --version
 #- pwsh.exe -File C:\projects\test-appveyor\test.ps1 -ExecutionPolicy Bypass
 #- call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars32.bat"
 #- ps: Get-Service 'MSSQL$SQL2017'
