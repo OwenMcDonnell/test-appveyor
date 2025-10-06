@@ -9,6 +9,7 @@ environment:
   CXX:        C:/msys64/mingw64/bin/g++.exe
 
 init:
+
 - ps: $env:APPVEYOR_BUILD_WORKER_IMAGE
 - ps: $env:APPVEYOR_BUILD_WORKER_CLOUD
 #- ps: echo $env:APPVEYOR_JOB_ID
@@ -20,6 +21,7 @@ init:
 
 
 install:
+  - ps: $env:PATH += ";C:/msys64/mingw64/bin"
   - ps: C:\msys64\mingw64\bin\gcc.exe --version
   - ps: C:\msys64\mingw64\bin\g++.exe --version
   - ps: C:\OpenSSL-Win64\bin\openssl version
