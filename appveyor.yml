@@ -21,6 +21,8 @@ init:
 
 
 install:
+  - ps: C:\msys64\mingw64\bin\gcc.exe --version
+  - ps: C:\msys64\mingw64\bin\g++.exe --version
   #- ps: ./install_cmake.ps1
   - ps: ./install_msys.ps1
   - ps: uname -a
