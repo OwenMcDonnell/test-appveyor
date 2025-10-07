@@ -1,5 +1,5 @@
 
-image: Previous Visual Studio 2019
+image: Visual Studio 2019
 #image: vs2019-master-gce-us-central1
 #build_cloud: bakery-gce-us-central1
 #build_cloud: gce
