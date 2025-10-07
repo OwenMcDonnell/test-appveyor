@@ -17,11 +17,12 @@ init:
 #- ps: Get-module PowerShellGet -ListAvailable
 #- call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars32.bat"
 - ps: uname -a
-- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+#- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 
 install:
   - ps: Copy-Item -Path "CmakeLists.txt" -Destination "C:/msys64/home/appveyor"
+  - ps: ps: Copy-Item -Path "main.cpp" -Destination "C:/msys64/home/appveyor"
   - ps: C:\msys64\usr\bin\bash.exe -lc "cat /etc/os-release"
   - ps: C:\msys64\usr\bin\bash.exe -lc "pacman -Q msys2-runtime"
 
