@@ -30,8 +30,8 @@ function bash($command) {
 #bash 'pacman -Sy --noconfirm pacman pacman-mirrors'
 
 # update core packages
-bash "pacman -Syuu --noconfirm && ps -ef | grep 'dirmngr' | grep -v grep | awk '{print `$2}' | xargs -r kill -9 && ps -ef | grep 'gpg-agent' | grep -v grep | awk '{print `$2}' | xargs -r kill -9"
-bash "pacman -Syuu --noconfirm && ps -ef | grep 'gpg-agent' | grep -v grep | awk '{print `$2}' | xargs -r kill -9"
+#bash "pacman -Syuu --noconfirm && ps -ef | grep 'dirmngr' | grep -v grep | awk '{print `$2}' | xargs -r kill -9 && ps -ef | grep 'gpg-agent' | grep -v grep | awk '{print `$2}' | xargs -r kill -9"
+#bash "pacman -Syuu --noconfirm && ps -ef | grep 'gpg-agent' | grep -v grep | awk '{print `$2}' | xargs -r kill -9"
 
 # install packages
 bash 'pacman --sync --noconfirm VCS'
