@@ -31,7 +31,7 @@ install:
   - ps: C:\msys64\mingw64\bin\g++.exe --version
   #- ps: ./install_cmake.ps1
   
-  #- ps: ./install_msys.ps1
+  - ps: ./install_msys.ps1
   #- ps: Copy-Item -Path "main.cpp" -Destination "C:/msys64/home/appveyor"
   #- ps: Copy-Item -Path "CmakeLists.txt" -Destination "C:/msys64/home/appveyor"
   - ps: uname -a
