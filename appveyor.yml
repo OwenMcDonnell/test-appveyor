@@ -22,7 +22,7 @@ init:
 
 install:
   #- ps: ./install_cmake.ps1
-  - ps: ./install_msys.ps1
+  - ps: ./install_ninja.ps1
   - ps: $env:PATH += ";C:/msys64/mingw64/bin"
   - ps: C:\msys64\mingw64\bin\gcc.exe --version
   - ps: C:\msys64\mingw64\bin\g++.exe --version
