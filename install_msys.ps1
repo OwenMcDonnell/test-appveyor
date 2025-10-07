@@ -8,7 +8,7 @@ if(Test-path C:\msys64) {
 $zipPath = "$($env:TEMP)\msys2-x86_64-latest.tar.xz"
 $tarPath = "$($env:TEMP)\msys2-x86_64-latest.tar"
 Write-Host "Downloading MSYS installation package..."
-(New-Object Net.WebClient).DownloadFile('https://repo.msys2.org/distrib/x86_64/msys2-base-x86_64-20241208.tar.xz', $zipPath)
+(New-Object Net.WebClient).DownloadFile('https://repo.msys2.org/distrib/x86_64/msys2-base-x86_64-20250622.tar.xz', $zipPath)
 
 Write-Host "Untaring installation package..."
 7z x $zipPath -y -o"$env:TEMP" | Out-Null
