@@ -30,7 +30,7 @@ install:
   - ps: C:\msys64\mingw64\bin\g++.exe --version
   #- ps: ./install_cmake.ps1
   
-  #- ps: ./install_msys.ps1
+  - ps: ./install_msys.ps1
   - ps: uname -a
   - ps: $env:PATH += ";C:/msys64/mingw64/bin"
   - ps: C:\msys64\usr\bin\bash.exe -lc "cat /etc/os-release"
