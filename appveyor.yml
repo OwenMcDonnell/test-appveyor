@@ -23,6 +23,7 @@ init:
 install:
   - ps: Copy-Item -Path "main.cpp" -Destination "C:/msys64/home/appveyor"
   - ps: Copy-Item -Path "CmakeLists.txt" -Destination "C:/msys64/home/appveyor"
+  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
   - ps: C:\msys64\usr\bin\bash.exe -lc "cat /etc/os-release"
   - ps: C:\msys64\usr\bin\bash.exe -lc "pacman -Q msys2-runtime"
 
