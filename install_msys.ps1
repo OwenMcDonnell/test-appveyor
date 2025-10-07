@@ -8,7 +8,7 @@ if(Test-path C:\msys64) {
 $zipPath = "$($env:TEMP)\msys2-x86_64-latest.tar.xz"
 $tarPath = "$($env:TEMP)\msys2-x86_64-latest.tar"
 Write-Host "Downloading MSYS installation package..."
-(New-Object Net.WebClient).DownloadFile('https://repo.msys2.org/distrib/x86_64/msys2-base-x86_64-20250622.tar.xz', $zipPath)
+(New-Object Net.WebClient).DownloadFile('https://repo.msys2.org/distrib/msys2-x86_64-latest.tar.xz', $zipPath)
 
 Write-Host "Untaring installation package..."
 7z x $zipPath -y -o"$env:TEMP" | Out-Null
@@ -27,11 +27,11 @@ function bash($command) {
 [Environment]::SetEnvironmentVariable("MSYS2_PATH_TYPE", "inherit", "Machine")
 
 # install latest pacman
-#bash 'pacman -Sy --noconfirm pacman pacman-mirrors'
+bash 'pacman -Sy --noconfirm pacman pacman-mirrors'
 
 # update core packages
-#bash "pacman -Syuu --noconfirm && ps -ef | grep 'dirmngr' | grep -v grep | awk '{print `$2}' | xargs -r kill -9 && ps -ef | grep 'gpg-agent' | grep -v grep | awk '{print `$2}' | xargs -r kill -9"
-#bash "pacman -Syuu --noconfirm && ps -ef | grep 'gpg-agent' | grep -v grep | awk '{print `$2}' | xargs -r kill -9"
+bash "pacman -Syuu --noconfirm && ps -ef | grep 'dirmngr' | grep -v grep | awk '{print `$2}' | xargs -r kill -9 && ps -ef | grep 'gpg-agent' | grep -v grep | awk '{print `$2}' | xargs -r kill -9"
+bash "pacman -Syuu --noconfirm && ps -ef | grep 'gpg-agent' | grep -v grep | awk '{print `$2}' | xargs -r kill -9"
 
 # install packages
 bash 'pacman --sync --noconfirm VCS'
