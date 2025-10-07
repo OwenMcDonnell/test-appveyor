@@ -31,17 +31,17 @@ install:
   - ps: C:\msys64\mingw64\bin\g++.exe --version
   #- ps: ./install_cmake.ps1
   
-  - ps: ./install_msys.ps1
-  - ps: Copy-Item -Path "main.cpp" -Destination "C:/msys64/home/appveyor"
-  - ps: Copy-Item -Path "CmakeLists.txt" -Destination "C:/msys64/home/appveyor"
+  #- ps: ./install_msys.ps1
+  #- ps: Copy-Item -Path "main.cpp" -Destination "C:/msys64/home/appveyor"
+  #- ps: Copy-Item -Path "CmakeLists.txt" -Destination "C:/msys64/home/appveyor"
   - ps: uname -a
   - ps: $env:PATH += ";C:/msys64/mingw64/bin"
   - ps: C:\msys64\usr\bin\bash.exe -lc "cat /etc/os-release"
   - ps: C:\msys64\usr\bin\bash.exe -lc "pacman -Q msys2-runtime"
   - ps: C:\msys64\mingw64\bin\gcc.exe --version
   - ps: C:\msys64\mingw64\bin\g++.exe --version
-  - ps: C:\OpenSSL-Win64\bin\openssl version
-  - ps: C:\msys64\usr\bin\bash.exe -lc "cmake -B./build -G 'Ninja' -DCMAKE_BUILD_TYPE:STRING=RelWithDebInfo"
+  #- ps: C:\OpenSSL-Win64\bin\openssl version
+  - ps: cmake -B./build -G 'Ninja' -DCMAKE_BUILD_TYPE:STRING=RelWithDebInfo
 
   #- ps: Get-ChildItem -Path "C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt\"
   #- ps: Get-ChildItem -Path "C:\msys64\mingw64\lib"
