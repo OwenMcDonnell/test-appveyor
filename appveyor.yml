@@ -40,8 +40,15 @@ install:
       Import-Module $env:ChocolateyInstall\helpers\chocolateyProfile.psm1
 
       refreshenv
-  - ps: $env:PATH_OUT = Get-Content -Raw "$env:TEMP\saved_path.txt"
-  - ps: Write-host $PATH_OUT
+  - ps: |
+      
+      $pathFile = "${env:TEMP}\saved_path.txt"
+      
+      $env:PATH_OUT = Get-Content -Raw $pathFile
+      
+      Write-Host "Restored PATH: $env:PATH_OUT"
+
+  #- ps: Write-host $PATH_OUT
   - appveyor version
   - ps: C:\msys64\mingw64\bin\gcc.exe --version
   - ps: C:\msys64\mingw64\bin\g++.exe --version
