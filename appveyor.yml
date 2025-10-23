@@ -57,6 +57,8 @@ install:
       refreshenv
 
       $env:PATH = Get-Content -Raw $pathFile
+      $appveyorPath = "C:\Program Files\AppVeyor\BuildAgent"
+      $env:PATH = "$pathBackup;$appveyorPath"
       Write-Host "Restored PATH: $env:PATH"
 
   #- ps: Write-host $PATH_OUT
