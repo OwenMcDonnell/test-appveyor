@@ -48,15 +48,16 @@ install:
       
   #     Write-Host "Restored PATH: $env:PATH_OUT"
   - ps: |
-    $pathFile = "${env:TEMP}\saved_path.txt"
+    
+      $pathFile = "${env:TEMP}\saved_path.txt"
 
-    $env:PATH | Out-File -FilePath $pathFile -Encoding utf8
+      $env:PATH | Out-File -FilePath $pathFile -Encoding utf8
 
-    Import-Module $env:ChocolateyInstall\helpers\chocolateyProfile.psm1
-    refreshenv
+      Import-Module $env:ChocolateyInstall\helpers\chocolateyProfile.psm1
+      refreshenv
 
-    $env:PATH = Get-Content -Raw $pathFile
-    Write-Host "Restored PATH: $env:PATH"
+      $env:PATH = Get-Content -Raw $pathFile
+      Write-Host "Restored PATH: $env:PATH"
 
   #- ps: Write-host $PATH_OUT
   - appveyor version
