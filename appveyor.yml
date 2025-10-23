@@ -27,7 +27,12 @@ install:
   # - ps: C:\msys64\usr\bin\bash.exe -lc "cat /etc/os-release"
   # - ps: C:\msys64\usr\bin\bash.exe -lc "pacman -Q msys2-runtime"
   - appveyor version
-  - ps: $env:PATH | Out-File -FilePath "$env:TEMP\saved_path.txt" -Encoding utf8
+  #- ps: $env:PATH | Out-File -FilePath "$env:TEMP\saved_path.txt" -Encoding utf8
+  - ps: |
+      $pathFile = "${env:TEMP}\saved_path.txt"
+
+      $env:PATH | Out-File -FilePath $pathFile -Encoding utf8
+      
   - ps: |
 
       choco install --limitoutput microsoft-openjdk --version 17.0.10
