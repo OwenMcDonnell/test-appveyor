@@ -1,12 +1,12 @@
 
-image: Previous Visual Studio 2019
+image: Visual Studio 2022
 #image: vs2019-master-gce-us-central1
 #build_cloud: bakery-gce-us-central1
 #build_cloud: gce
 
-environment:
-  CC:         C:/msys64/mingw64/bin/gcc.exe
-  CXX:        C:/msys64/mingw64/bin/g++.exe
+# environment:
+#   CC:         C:/msys64/mingw64/bin/gcc.exe
+#   CXX:        C:/msys64/mingw64/bin/g++.exe
 
 init:
 
@@ -24,9 +24,20 @@ install:
   #- ps: Copy-Item -Path "main.cpp" -Destination "C:/msys64/home/appveyor"
   #- ps: Copy-Item -Path "CmakeLists.txt" -Destination "C:/msys64/home/appveyor"
   #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
-  - ps: C:\msys64\usr\bin\bash.exe -lc "cat /etc/os-release"
-  - ps: C:\msys64\usr\bin\bash.exe -lc "pacman -Q msys2-runtime"
+  # - ps: C:\msys64\usr\bin\bash.exe -lc "cat /etc/os-release"
+  # - ps: C:\msys64\usr\bin\bash.exe -lc "pacman -Q msys2-runtime"
+  - appveyor version
+  - ps: $env:PATH | Out-File -FilePath "$env:TEMP\saved_path.txt" -Encoding utf8
+  - ps: |
 
+      choco install --limitoutput microsoft-openjdk --version 17.0.10
+
+      Import-Module $env:ChocolateyInstall\helpers\chocolateyProfile.psm1
+
+      refreshenv
+  - ps: $env:PATH_OUT = Get-Content -Raw "$env:TEMP\saved_path.txt"
+  - ps: Write-host $PATH_OUT
+  - appveyor version
   - ps: C:\msys64\mingw64\bin\gcc.exe --version
   - ps: C:\msys64\mingw64\bin\g++.exe --version
   #- ps: ./install_cmake.ps1
