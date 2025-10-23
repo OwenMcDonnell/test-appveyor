@@ -49,14 +49,11 @@ install:
   #     Write-Host "Restored PATH: $env:PATH_OUT"
   - ps: |
     
-      $pathFile = "${env:TEMP}\saved_path.txt"
 
-      $env:PATH | Out-File -FilePath $pathFile -Encoding utf8
 
       Import-Module $env:ChocolateyInstall\helpers\chocolateyProfile.psm1
       refreshenv
 
-      $env:PATH = Get-Content -Raw $pathFile
       $appveyorPath = "C:\Program Files\AppVeyor\BuildAgent"
       $env:PATH = "$pathBackup;$appveyorPath"
       Write-Host "Restored PATH: $env:PATH"
