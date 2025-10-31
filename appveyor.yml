@@ -24,7 +24,7 @@ install:
   - ps: ./install_python_314.ps1
   #- ps: Copy-Item -Path "main.cpp" -Destination "C:/msys64/home/appveyor"
   #- ps: Copy-Item -Path "CmakeLists.txt" -Destination "C:/msys64/home/appveyor"
-  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+  #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
   # - ps: C:\msys64\usr\bin\bash.exe -lc "cat /etc/os-release"
   # - ps: C:\msys64\usr\bin\bash.exe -lc "pacman -Q msys2-runtime"
   - appveyor version
@@ -48,19 +48,19 @@ install:
   #     $env:PATH_OUT = Get-Content -Raw $pathFile
       
   #     Write-Host "Restored PATH: $env:PATH_OUT"
-  - ps: |
+  # - ps: |
     
 
 
-      Import-Module $env:ChocolateyInstall\helpers\chocolateyProfile.psm1
-      refreshenv
+  #     Import-Module $env:ChocolateyInstall\helpers\chocolateyProfile.psm1
+  #     refreshenv
 
-      $appveyorPath = "C:\Program Files\AppVeyor\BuildAgent"
-      $env:PATH += ";$appveyorPath"
-      Write-Host "Restored PATH: $env:PATH"
+  #     $appveyorPath = "C:\Program Files\AppVeyor\BuildAgent"
+  #     $env:PATH += ";$appveyorPath"
+  #     Write-Host "Restored PATH: $env:PATH"
 
   #- ps: Write-host $PATH_OUT
-  - appveyor version
+  - python version
   - ps: C:\msys64\mingw64\bin\gcc.exe --version
   - ps: C:\msys64\mingw64\bin\g++.exe --version
   #- ps: ./install_cmake.ps1
