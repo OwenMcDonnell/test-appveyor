@@ -183,9 +183,5 @@ function CheckPython($path) {
     }
 }
 
-CheckPython 'C:\Python311'
-CheckPython 'C:\Python311-x64'
-CheckPython 'C:\Python312'
-CheckPython 'C:\Python312-x64'
-CheckPython 'C:\Python313'
-CheckPython 'C:\Python313-x64'
+CheckPython 'C:\Python314'
+CheckPython 'C:\Python314-x64'
