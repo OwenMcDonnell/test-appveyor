@@ -60,7 +60,7 @@ install:
   #     Write-Host "Restored PATH: $env:PATH"
 
   #- ps: Write-host $PATH_OUT
-  - python version
+  - python --version
   - ps: C:\msys64\mingw64\bin\gcc.exe --version
   - ps: C:\msys64\mingw64\bin\g++.exe --version
   #- ps: ./install_cmake.ps1
