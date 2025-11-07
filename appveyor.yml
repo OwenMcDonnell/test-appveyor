@@ -1,6 +1,6 @@
 
 #image: Visual Studio 2022
-image: vs2022-master
+image: vs2019-master
 build_cloud: bakery-hyperv-host-20
 #build_cloud: gce
 
