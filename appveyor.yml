@@ -1,7 +1,7 @@
 
-#image: Visual Studio 2022
-image: vs2019-master
-build_cloud: bakery-hyperv-host-20
+image: Visual Studio 2022
+#image: vs2019-master
+#build_cloud: bakery-hyperv-host-20
 #build_cloud: gce
 
 # environment:
@@ -21,6 +21,7 @@ init:
 
 
 install:
+  - ps: nvm ls
   - ps: ./install_python_314.ps1
   #- ps: Copy-Item -Path "main.cpp" -Destination "C:/msys64/home/appveyor"
   #- ps: Copy-Item -Path "CmakeLists.txt" -Destination "C:/msys64/home/appveyor"
