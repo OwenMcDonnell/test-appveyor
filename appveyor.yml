@@ -1,8 +1,10 @@
 
-image: Visual Studio 2022
+#image: Visual Studio 2022
 #image: vs2019-master
+image: Windows
 #build_cloud: bakery-hyperv-host-20
 #build_cloud: gce
+build_cloud: OWEN-DEKSTOP
 
 # environment:
 #   CC:         C:/msys64/mingw64/bin/gcc.exe
