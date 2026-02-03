@@ -4,7 +4,7 @@
 image: Windows-Server-2019
 #build_cloud: bakery-hyperv-host-20
 #build_cloud: gce
-build_cloud: OWEN-DEKSTOP
+build_cloud: OWEN-DESKTOP
 
 # environment:
 #   CC:         C:/msys64/mingw64/bin/gcc.exe
