@@ -1,7 +1,7 @@
 
 #image: Visual Studio 2022
 #image: vs2019-master
-image: Windows
+image: Windows-Server-2019
 #build_cloud: bakery-hyperv-host-20
 #build_cloud: gce
 build_cloud: OWEN-DEKSTOP
