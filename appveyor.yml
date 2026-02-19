@@ -1,10 +1,10 @@
 
-#image: Visual Studio 2022
+image: Visual Studio 2022
 #image: vs2019-master
-image: Windows-Server-2019
+#image: Windows-Server-2019
 #build_cloud: bakery-hyperv-host-20
 #build_cloud: gce
-build_cloud: OWEN-DESKTOP
+#build_cloud: OWEN-DESKTOP
 
 # environment:
 #   CC:         C:/msys64/mingw64/bin/gcc.exe
@@ -19,7 +19,7 @@ init:
 #- ps: Get-module PowerShellGet -ListAvailable
 #- call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars32.bat"
 - ps: uname -a
-#- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 
 install:
