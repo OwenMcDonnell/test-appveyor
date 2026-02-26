@@ -1,6 +1,6 @@
 
-#image: Visual Studio 2019
-image: vs2019-master-gce-us-central1
+image: Visual Studio 2019
+#image: vs2019-master-gce-us-central1
 #image: vs2019-master
 #image: Windows-Server-2019
 #build_cloud: bakery-hyperv-host-20
