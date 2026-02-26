@@ -14,7 +14,6 @@ init:
 
 - ps: $env:APPVEYOR_BUILD_WORKER_IMAGE
 - ps: $env:APPVEYOR_BUILD_WORKER_CLOUD
-- dotnet --list-sdks
 #- ps: echo $env:APPVEYOR_JOB_ID
 #- ps: $PsVersionTable
 #- ps: Get-module PowerShellGet -ListAvailable
@@ -24,8 +23,8 @@ init:
 
 
 install:
-  - ps: nvm ls
-  - ps: ./install_python_314.ps1
+  #- ps: nvm ls
+  #- ps: ./install_python_314.ps1
   #- ps: Copy-Item -Path "main.cpp" -Destination "C:/msys64/home/appveyor"
   #- ps: Copy-Item -Path "CmakeLists.txt" -Destination "C:/msys64/home/appveyor"
   #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
@@ -72,14 +71,14 @@ install:
   #- ps: ./install_msys.ps1
   #- ps: Copy-Item -Path "main.cpp" -Destination "C:/msys64/home/appveyor"
   #- ps: Copy-Item -Path "CmakeLists.txt" -Destination "C:/msys64/home/appveyor"
-  - ps: $env:PATH += ";C:/msys64/mingw64/bin"
-  - ps: uname -a
-  - ps: C:\msys64\usr\bin\bash.exe -lc "cat /etc/os-release"
-  - ps: C:\msys64\usr\bin\bash.exe -lc "pacman -Q msys2-runtime"
-  - ps: C:\msys64\mingw64\bin\gcc.exe --version
-  - ps: C:\msys64\mingw64\bin\g++.exe --version
+  #- ps: $env:PATH += ";C:/msys64/mingw64/bin"
+
+  #- ps: C:\msys64\usr\bin\bash.exe -lc "cat /etc/os-release"
+  #- ps: C:\msys64\usr\bin\bash.exe -lc "pacman -Q msys2-runtime"
+  #- ps: C:\msys64\mingw64\bin\gcc.exe --version
+  #- ps: C:\msys64\mingw64\bin\g++.exe --version
   #- ps: C:\OpenSSL-Win64\bin\openssl version
-  - ps: cmake -B./build -G Ninja -DCMAKE_BUILD_TYPE:STRING=RelWithDebInfo
+  #- ps: cmake -B./build -G Ninja -DCMAKE_BUILD_TYPE:STRING=RelWithDebInfo
 
   #- ps: Get-ChildItem -Path "C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt\"
   #- ps: Get-ChildItem -Path "C:\msys64\mingw64\lib"
