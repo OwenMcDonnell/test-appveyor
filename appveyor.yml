@@ -17,8 +17,12 @@ init:
 - ps: $env:APPVEYOR_BUILD_WORKER_IMAGE
 - ps: $env:APPVEYOR_BUILD_WORKER_CLOUD
 #- ps: echo $env:APPVEYOR_JOB_ID
+- ps: Get-Module Az -ListAvailable | Select Name,Version,Path
+- ps: Get-Module Az.Accounts -ListAvailable | Select Name,Version,Path
+- ps: $env:PSModulePath -split ';'
+
 - ps: $PsVersionTable
-- ps: Get-Module Az.Accounts -ListAvailable
+#- ps: Get-Module Az.Accounts -ListAvailable
 - ps: Get-module PowerShellGet -ListAvailable
 #- call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars32.bat"
 - ps: uname -a
