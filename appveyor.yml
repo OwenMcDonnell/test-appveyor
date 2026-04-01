@@ -41,6 +41,17 @@ install:
   # - ps: C:\msys64\usr\bin\bash.exe -lc "cat /etc/os-release"
   # - ps: C:\msys64\usr\bin\bash.exe -lc "pacman -Q msys2-runtime"
   - appveyor version
+  
+  - ps: >-
+       $roots = @(
+         'C:\Program Files\WindowsPowerShell\Modules',
+         'C:\Program Files (x86)\WindowsPowerShell\Modules'
+       ) | Where-Object { Test-Path $_ }
+
+      Get-ChildItem $roots -Recurse -Filter *.psd1 -ErrorAction SilentlyContinue |
+        Select-String -Pattern 'Az\.Accounts','2\.10\.0' |
+        Select Path, LineNumber, Line
+        
   - ps: Write-Host '=== PSModulePath ==='
   - ps: $env:PSModulePath -split ';'
   
