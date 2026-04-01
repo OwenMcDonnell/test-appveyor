@@ -56,6 +56,7 @@ install:
   - ps: Write-Host '=== Available PowerShellGet / PackageManagement ==='
   - ps: Get-Module PowerShellGet,PackageManagement -ListAvailable | Sort-Object Name,Version | Select Name,Version,Path
 
+  - ps: Import-Module Az
   #- ps: $env:PATH | Out-File -FilePath "$env:TEMP\saved_path.txt" -Encoding utf8
   # - ps: |
   #     $pathFile = "${env:TEMP}\saved_path.txt"
