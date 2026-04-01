@@ -43,7 +43,7 @@ install:
   - appveyor version
   
   - ps: >-
-       $roots = @(
+      $roots = @(
          'C:\Program Files\WindowsPowerShell\Modules',
          'C:\Program Files (x86)\WindowsPowerShell\Modules'
        ) | Where-Object { Test-Path $_ }
