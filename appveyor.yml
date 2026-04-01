@@ -17,11 +17,13 @@ init:
 - ps: $env:APPVEYOR_BUILD_WORKER_IMAGE
 - ps: $env:APPVEYOR_BUILD_WORKER_CLOUD
 #- ps: echo $env:APPVEYOR_JOB_ID
-- ps: Get-Module Az -ListAvailable | Select Name,Version,Path
-- ps: Get-Module Az.Accounts -ListAvailable | Select Name,Version,Path
-- ps: $env:PSModulePath -split ';'
-- ps: Import-Module Az
-- ps: $PsVersionTable
+
+
+#- ps: Get-Module Az -ListAvailable | Select Name,Version,Path
+#- ps: Get-Module Az.Accounts -ListAvailable | Select Name,Version,Path
+#- ps: $env:PSModulePath -split ';'
+#- ps: Import-Module Az
+#- ps: $PsVersionTable
 #- ps: Get-Module Az.Accounts -ListAvailable
 - ps: Get-module PowerShellGet -ListAvailable
 #- call "C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars32.bat"
@@ -30,6 +32,7 @@ init:
 
 
 install:
+
   #- ps: nvm ls
   #- ps: ./install_python_314.ps1
   #- ps: Copy-Item -Path "main.cpp" -Destination "C:/msys64/home/appveyor"
@@ -38,6 +41,21 @@ install:
   # - ps: C:\msys64\usr\bin\bash.exe -lc "cat /etc/os-release"
   # - ps: C:\msys64\usr\bin\bash.exe -lc "pacman -Q msys2-runtime"
   - appveyor version
+  - ps: Write-Host '=== PSModulePath ==='
+  - ps: $env:PSModulePath -split ';'
+  
+  - ps: Write-Host '=== Loaded modules ==='
+  - ps: Get-Module | Sort-Object Name | Select Name,Version,Path
+  
+  - ps: Write-Host '=== Available Az modules ==='
+  - ps: Get-Module Az* -ListAvailable | Sort-Object Name,Version | Select Name,Version,Path
+  
+  - ps: Write-Host '=== Available Azure modules ==='
+  - ps: Get-Module Azure* -ListAvailable | Sort-Object Name,Version | Select Name,Version,Path
+  
+  - ps: Write-Host '=== Available PowerShellGet / PackageManagement ==='
+  - ps: Get-Module PowerShellGet,PackageManagement -ListAvailable | Sort-Object Name,Version | Select Name,Version,Path
+
   #- ps: $env:PATH | Out-File -FilePath "$env:TEMP\saved_path.txt" -Encoding utf8
   # - ps: |
   #     $pathFile = "${env:TEMP}\saved_path.txt"
