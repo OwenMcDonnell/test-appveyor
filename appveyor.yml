@@ -6,7 +6,7 @@ image: WS2025-test
 #image: Windows-Server-2019
 #build_cloud: bakery-hyperv-host-20
 #build_cloud: gce-pro-backup-central1-01-b
-build_cloud: AWS-us-west-2
+build_cloud: AWS-test
 #build_cloud: bakery-gce-us-central1
 #build_cloud: OWEN-DESKTOP
 
