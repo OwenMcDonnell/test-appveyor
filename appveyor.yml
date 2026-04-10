@@ -8,7 +8,7 @@ image: Windows
 #build_cloud: bakery-hyperv-host-20
 #build_cloud: gce-pro-backup-central1-01-b
 #build_cloud: AWS-test
-build_cloud: AWS us-west-2 m5.large
+build_cloud: AWS-test-2
 #build_cloud: bakery-gce-us-central1
 #build_cloud: OWEN-DESKTOP
 
