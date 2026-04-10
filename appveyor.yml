@@ -1,12 +1,14 @@
 
 #image: Visual Studio 2022
-image: WS2025-test
+#image: WS2025-test
+image: Windows
 #image: vs2019-master-gce-us-central1
 #image: vs2019-master
 #image: Windows-Server-2019
 #build_cloud: bakery-hyperv-host-20
 #build_cloud: gce-pro-backup-central1-01-b
-build_cloud: AWS-test
+#build_cloud: AWS-test
+build_cloud: AWS us-west-2 m5.large
 #build_cloud: bakery-gce-us-central1
 #build_cloud: OWEN-DESKTOP
 
