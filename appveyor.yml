@@ -1,13 +1,13 @@
 
-#image: Visual Studio 2022
+image: Visual Studio 2022
 #image: AWS-test-3
-image: Newest-agent-test
+#image: Newest-agent-test
 #image: vs2019-master-gce-us-central1
 #image: vs2019-master
 #image: Windows-Server-2019
 #build_cloud: bakery-hyperv-host-20
 #build_cloud: gce-pro-backup-central1-01-b
-build_cloud: Build-agent-testing-3
+#build_cloud: Build-agent-testing-3
 #build_cloud: AWS-test-2
 #build_cloud: bakery-gce-us-central1
 #build_cloud: OWEN-DESKTOP
@@ -42,7 +42,7 @@ install:
   #- ps: ./install_python_314.ps1
   #- ps: Copy-Item -Path "main.cpp" -Destination "C:/msys64/home/appveyor"
   #- ps: Copy-Item -Path "CmakeLists.txt" -Destination "C:/msys64/home/appveyor"
-  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+  #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
   # - ps: C:\msys64\usr\bin\bash.exe -lc "cat /etc/os-release"
   # - ps: C:\msys64\usr\bin\bash.exe -lc "pacman -Q msys2-runtime"
   - appveyor version
